@@ -15,136 +15,164 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
 }
 
-h1 {
-    text-align: center;
-    color: var(--ph-text);
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.input-group {
+/* Logo 样式 */
+.logo {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    background: var(--ph-gray);
-    padding: 15px;
-    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
-input[type="text"] {
-    flex: 1;
-    padding: 12px;
-    background: var(--ph-dark);
-    border: 1px solid var(--ph-gray);
-    border-radius: 4px;
-    font-size: 14px;
+.logo span:first-child {
     color: var(--ph-text);
-}
-
-select {
-    padding: 12px;
-    background: var(--ph-dark);
-    border: 1px solid var(--ph-gray);
+    background: var(--ph-black);
+    padding: 8px 15px;
     border-radius: 4px;
-    color: var(--ph-text);
-    font-size: 14px;
-}
-
-button {
-    padding: 12px 24px;
-    background: var(--ph-orange);
-    color: var(--ph-black);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
     font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
+    font-size: 24px;
 }
 
-button:hover {
-    background: #ffa31a;
-    transform: translateY(-2px);
+.logo span:last-child {
+    color: var(--ph-black);
+    background: var(--ph-orange);
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-left: 2px;
+    font-weight: bold;
+    font-size: 24px;
 }
 
+/* 订阅按钮组 */
 .subscription-btn-group {
     display: flex;
     gap: 10px;
-    margin: 20px 0;
+    margin: 20px 0 40px;
     justify-content: center;
     background: var(--ph-gray);
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
 }
 
 .direct-sub-btn {
     background: var(--ph-orange);
-    padding: 12px 24px;
-    font-size: 16px;
+    padding: 15px 30px;
+    font-size: 18px;
     min-width: 200px;
+    color: var(--ph-black);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
 .direct-format {
     min-width: 120px;
     background: var(--ph-dark);
     color: var(--ph-text);
-}
-
-#result {
-    margin-top: 20px;
-    background: var(--ph-gray);
-    padding: 15px;
-    border-radius: 8px;
-}
-
-#result textarea {
-    width: 100%;
-    height: 200px;
-    padding: 12px;
-    background: var(--ph-dark);
     border: 1px solid var(--ph-gray);
     border-radius: 4px;
-    font-family: monospace;
-    font-size: 14px;
-    color: var(--ph-text);
-    resize: vertical;
+    padding: 0 15px;
 }
 
-.copy-btn {
-    margin-top: 10px;
-    background: var(--ph-orange);
-    width: 100%;
+/* 工具卡片网格 */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-/* 添加 Logo 样式 */
-.logo {
+.tool-card {
+    background: var(--ph-gray);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+}
+
+.tool-logo {
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    background: var(--ph-dark);
+    padding: 20px;
 }
 
-.logo span:first-child {
+.tool-logo img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.tool-content {
+    padding: 20px;
+}
+
+.tool-content h3 {
+    margin: 0 0 15px;
+    color: var(--ph-orange);
+    font-size: 24px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tag {
+    background: var(--ph-dark);
     color: var(--ph-text);
-    background: var(--ph-black);
     padding: 5px 10px;
     border-radius: 4px;
-    font-weight: bold;
+    font-size: 14px;
 }
 
-.logo span:last-child {
-    color: var(--ph-black);
+.tool-content p {
+    margin: 0 0 15px;
+    line-height: 1.6;
+}
+
+.tool-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.tool-content ul li {
+    margin: 8px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.tool-content ul li:before {
+    content: "•";
+    color: var(--ph-orange);
+    position: absolute;
+    left: 0;
+}
+
+.download-btn {
+    display: inline-block;
     background: var(--ph-orange);
-    padding: 5px 10px;
+    color: var(--ph-black);
+    padding: 12px 24px;
+    text-decoration: none;
     border-radius: 4px;
-    margin-left: 2px;
     font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #ffa31a;
+    transform: translateY(-2px);
 } 
