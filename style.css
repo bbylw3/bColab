@@ -93,6 +93,7 @@ body {
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    padding: 20px;
 }
 
 .tool-card:hover {
@@ -100,17 +101,7 @@ body {
 }
 
 .tool-logo {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--ph-dark);
-    padding: 20px;
-}
-
-.tool-logo img {
-    max-width: 150px;
-    max-height: 150px;
+    display: none;
 }
 
 .tool-content {

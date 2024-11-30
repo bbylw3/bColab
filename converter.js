@@ -18,9 +18,6 @@ function getDirectSubscription() {
     document.execCommand('copy');
     document.body.removeChild(tempInput);
     
-    // 提示用户
     alert('订阅地址已复制到剪贴板！');
-    
-    // 在新标签页打开订阅地址
     window.open(subscriptionUrl, '_blank');
 }
