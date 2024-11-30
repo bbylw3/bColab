@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>订阅转换</title>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>订阅转换</h1>
+        <div class="input-group">
+          <input type="text" id="subLink" placeholder="输入订阅链接" />
+          <select id="format">
+            <option value="clash">Clash</option>
+            <option value="surge">Surge</option>
+            <option value="singbox">Sing-Box</option>
+            <option value="loon">Loon</option>
+            <option value="quan">Quantumult</option>
+            <option value="quanx">Quantumult X</option>
+          </select>
+          <button onclick="convert()" class="convert-btn">转换</button>
+        </div>
+        <div id="result"></div>
+      </div>
+    </div>
+    <script src="converter.js"></script>
+  </body>
+</html>
