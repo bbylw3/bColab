@@ -1,8 +1,12 @@
 const config = {
     subconverter: "https://sub.xeton.dev",
     backupApi: "https://api.v1.mk",
-    subconfig: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_MultiCountry.ini"
+    subconfig: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_MultiCountry.ini",
+    subscriptionUrl: "https://co.154186.xyz/sub"
 };
+
+// 添加 CryptoJS 库
+const CryptoJS = require('crypto-js');
 
 async function convert() {
     const subLink = document.getElementById('subLink').value;
@@ -95,3 +99,65 @@ function setupAutocomplete() {
 
 // 页面加载时初始化
 document.addEventListener('DOMContentLoaded', setupAutocomplete); 
+
+async function fetchAndDecryptInBrowser() {
+  const apiUrl = 'https://application.xyhk.us.kg/serverlist';
+  const key = '65151f8d966bf596';
+  const iv = '88ca0f0ea1ecf975';
+  
+  try {
+    // 使用代理解决跨域
+    const proxyUrl = `https://cors-anywhere.herokuapp.com/${apiUrl}`;
+    const response = await fetch(proxyUrl, {
+      headers: {
+        'accept': '/',
+        'appversion': '1.3.1',
+        'user-agent': 'SkrKK/1.3.1',
+        'content-type': 'application/x-www-form-urlencoded'
+      }
+    });
+    
+    const encryptedData = await response.text();
+    
+    // 使用 CryptoJS 进行解密
+    const decrypted = CryptoJS.AES.decrypt(
+      encryptedData,
+      CryptoJS.enc.Utf8.parse(key),
+      {
+        iv: CryptoJS.enc.Utf8.parse(iv),
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7
+      }
+    );
+    
+    const data = JSON.parse(decrypted.toString(CryptoJS.enc.Utf8)).data;
+    return data;
+  } catch (error) {
+    console.error('解密失败:', error);
+    return null;
+  }
+} 
+
+// 添加直接订阅功能
+function getDirectSubscription() {
+    const format = document.getElementById('directFormat').value;
+    let subscriptionUrl = config.subscriptionUrl;
+    
+    if (format) {
+        subscriptionUrl += `?${format}=1`;
+    }
+    
+    // 复制订阅地址到剪贴板
+    const tempInput = document.createElement('input');
+    tempInput.value = subscriptionUrl;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    
+    // 提示用户
+    alert('订阅地址已复制到剪贴板！');
+    
+    // 在新标签页打开订阅地址
+    window.open(subscriptionUrl, '_blank');
+}

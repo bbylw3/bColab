@@ -17,7 +17,7 @@
   <body>
     <div id="app">
       <div class="container">
-        <h1>订阅转换</h1>
+        <div class="logo"><span>Sub</span><span>Hub</span></div>
         <div class="input-group">
           <input type="text" id="subLink" placeholder="输入订阅链接" />
           <select id="format">
@@ -29,6 +29,17 @@
             <option value="quanx">Quantumult X</option>
           </select>
           <button onclick="convert()" class="convert-btn">转换</button>
+        </div>
+        <div class="subscription-btn-group">
+          <button onclick="getDirectSubscription()" class="direct-sub-btn">
+            获取节点订阅
+          </button>
+          <select id="directFormat" class="direct-format">
+            <option value="">直接订阅</option>
+            <option value="clash">Clash</option>
+            <option value="surge">Surge</option>
+            <option value="singbox">Sing-Box</option>
+          </select>
         </div>
         <div id="result"></div>
       </div>
